@@ -145,7 +145,7 @@ if user_query:
                             mime="text/csv"
                         )
                     except:
-                        st.write(response)
+                        st.success(response)
                 else:
                     st.dataframe(response, use_container_width=True)
                     st.download_button(
@@ -156,7 +156,7 @@ if user_query:
                     )
                 
                 # Query execution feedback
-                st.success(f"Query completed in {st.session_state['query_time']}")
+                st.write(f"Query completed in {st.session_state['query_time']}")
             except Exception as e:
                 st.error(f"Error executing query: {str(e)}")
                 st.session_state["query_history"].append({"query": user_query, "response": f"Error: {str(e)}"})
